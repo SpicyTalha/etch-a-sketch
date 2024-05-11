@@ -6,11 +6,19 @@ body{
     flex-direction: column;
 }
 
+.bottom{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
 .top{
     display: flex;
     align-items: center;
-    justify-content: center;
-    height: 100px;
+    justify-content: baseline;
+    height: 150px;
+    flex-direction: column;
 }
 
 .container{

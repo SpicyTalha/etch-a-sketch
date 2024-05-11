@@ -1,9 +1,11 @@
+input = prompt("Enter a Value Between 1 - 100")
+
 function generateRandomRGBNumber() {
     return Math.floor(Math.random() * 256);
 }
 
 function generateRandomRGBColor() {
-    return `${generateRandomRGBNumber()},${generateRandomRGBNumber()},${generateRandomRGBNumber()}`;
+    return `rgb(${generateRandomRGBNumber()},${generateRandomRGBNumber()},${generateRandomRGBNumber()})`;
 }
 
 function createDiv(number = 1) {
@@ -16,7 +18,7 @@ function createDiv(number = 1) {
         div.setAttribute('class', 'box');
         container.style.width = `${layoutWidth}px`;
         div.addEventListener('mouseover', (event) => {  
-            div.style.backgroundColor = "black";
+            div.style.backgroundColor = generateRandomRGBColor();
             div.setAttribute('class', 'box marked');
             if (bordersButton.textContent == "Grid Lines"){
                 div.style.border = "1px solid black"
@@ -30,11 +32,17 @@ function createDiv(number = 1) {
 }
 
 let markedDivs = [];
-const x = createDiv(100);
+const x = createDiv(input);
+
+
 const clearButton = document.querySelector("#clear");
 clearButton.addEventListener('click', () => {
     x.forEach(element => {
         element.style.backgroundColor = "white";
+        if (bordersButton.textContent == 'Grid Lines')
+            element.style.border = '1px solid white'
+        else
+            element.style.border = '1px solid black'
     });
     markedDivs = [];
 });
@@ -59,6 +67,3 @@ bordersButton.addEventListener('click', () => {
         bordersButton.textContent = "Remove Borders";
     }
 });
-
-const testButton = document.querySelector('#test');
-testButton.addEventListener('click', () => console.log(markedDivs));
