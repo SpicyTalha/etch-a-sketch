@@ -9,13 +9,14 @@ function generateRandomRGBColor() {
 }
 
 function createDiv(number = 1) {
-    layoutWidth = number * 7;
+    layoutWidth = number * 8;
     const divList = [];
     for (let i = 1; i <= number * number; i++) {
         const container = document.querySelector(".container");
         const div = document.createElement("div");
         divList[i] = div;
         div.setAttribute('class', 'box');
+        div.style.backgroundColor = "white"
         container.style.width = `${layoutWidth}px`;
         div.addEventListener('mouseover', (event) => {  
             div.style.backgroundColor = generateRandomRGBColor();

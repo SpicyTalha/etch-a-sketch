@@ -4,6 +4,7 @@ body{
     align-items: center;
     height: 100vh;
     flex-direction: column;
+    background-color: bisque;
 }
 
 .bottom{
@@ -32,6 +33,6 @@ body{
 .box{
     flex: 0 1 auto;
     border: 1px solid black;
-    height: 5px;
-    width: 5px;
+    height: 6px;
+    width: 6px;
 }
